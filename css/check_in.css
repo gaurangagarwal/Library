@@ -1,0 +1,104 @@
+.heading{
+	/*text-align: center;*/
+}
+
+th,td{
+	border-bottom: 1px solid #ddd;
+	padding: 6px;	
+	text-align: left;
+}
+
+table{
+	/*border:0;*/
+	border-collapse: collapse;
+}
+
+.inf_tr:hover{
+	background-color: #F0F0F0
+}
+
+th{
+	/*background-color:*/
+}
+
+.pers_inf{
+	width: 36%;
+	/*border:5px solid #fff;*/
+	float: left;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#table_inf{
+	font-size: 20px;
+}
+.input_inf{
+	/*border:5px solid #fff;*/
+	width: 30%;
+	float: left;
+}
+
+.input_form{
+	padding-left:30% ;
+}
+
+.laptop_brand{
+	width: 100%;
+	/*border-radius: 5px;*/
+	/*background-color: #D8D8D8;*/
+	/*height: 5%;*/
+}
+
+.personal_books_fields {
+	width: 80%;
+	border: 5px solid black;
+	margin-left: 10%;
+	/*height: 5%;*/
+	margin-top: 7px;
+	/*float: left;
+	border-radius: 5px;
+	background-color: #D8D8D8;
+*/}
+
+.container{
+	display: inline-block;
+}
+
+#code{
+	visibility: hidden;
+}
+
+#laptop{
+	/*appearence:none;*/
+	/*zoom:2;*/
+	transform:scale(2, 2);
+	margin-left: 20px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	/*background-color: #fff;*/
+}
+.formLabel{
+	font-size: 20px;
+}
+
+.welcomeStatement{
+	font-size: 30px;
+	margin-left: 10%;
+	margin-bottom: 5%;
+}
+.welcomeStatement strong{
+	font-size: 35px;
+	color: #fff;
+	text-shadow:1px 1px 1px black;
+	padding-left: 1%;
+}
+input[type="text"]{
+	/*background-color: rgba(0,0,0,0);*/
+	border: 0px;
+	background-color: #F0F0F0;
+	color: black;
+	padding: 5px 7px;
+	font-size: 15px; 
+	/*border-bottom: 5px solid white;*/
+	/*width: 100px;*/
+	/*width: 70%;*/
+}

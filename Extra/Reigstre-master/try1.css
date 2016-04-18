@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+  font-family: 'Oxygen';
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+}
+ 
+.nav ul {
+  list-style: none;
+  background-color: #222;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  box-shadow: 0px 5px 10px #4d4d4d;
+}
+
+.nav li {
+  /*font-family: 'Helvetica', Arial;*/
+  /*font-size: 3em;*/
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #adadeb;
+  color: #444;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+}
+
+.data {
+	width: auto;
+}
+
+#logo img {
+	position: relative;
+	top: 40px;
+	/*left: 270px;*/
+	left: 5%;
+	width: 15%;
+	height: 15%;
+	/*margin-left: 270px;*/
+}
+
+#entry {
+	font-size: 165%;
+	position: relative;
+	/*float: right;*/
+	left: 54%;
+	/*bottom: 250px;*/
+	top: -250px;
+	right: 0px;
+	width: 100%;
+}
+
+input[type=text] {
+    width: 10%;
+    /*box-sizing: border-box;*/
+    /*border: 2px solid #ccc;*/
+    /*border: solid 5px #969696;*/
+    border: solid 5px #8c8c8c;
+ 	transition: border 0.3s;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('srcicon.png');
+    background-position: 8px 8px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border: solid 5px #404040;
+    width: 20%;
+}

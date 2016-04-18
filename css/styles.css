@@ -1,0 +1,267 @@
+@font-face {
+    font-family: Oxygen;
+    src: url(../fonts/Oxygen-Regular.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #b5b5b7;
+  font-family: 'Oxygen';
+  /*background-image: url("../img/bg.jpg");*/
+  /*background-repeat: no-repeat;*/
+}
+ 
+.nav ul {
+  list-style: none;
+  background-color: #252839;
+  /*background: -webkit-linear-gradient(#6633cc,#393185);*/
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  box-shadow: 0px 5px 10px #4d4d4d;
+}
+
+.nav li {
+  /*font-family: 'Helvetica', Arial;*/
+  /*font-size: 3em;*/
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+}
+ 
+.nav a.active {
+  background-color: #f2b632;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+}
+
+#headingHome {
+	width: 80%;
+	margin-left: 10%;
+  padding: 0px;
+	/*position: relative;*/
+	/*border:5px solid #fff;*/
+}
+
+#headingHome ul {
+	/*margin-top: 70px;*/
+	position: relative;
+  /*border:5px solid green;*/
+	list-style-type: none;
+}
+
+#headingHome ul li {
+  position: absolute;
+	display: inline-block;
+}
+
+#logo {
+	/*position: absolute;*/
+	/*border:5px solid black;*/
+	/*margin-left: 290px;*/
+	/*display: inline;*/
+	/*width: 500px;*/
+}
+
+#logo img {
+	margin-left: 15%;
+	width: 20%;
+	height: 20%;
+}
+
+#entry {
+	/*position: absolute;*/
+	/*display: inline;*/
+	/*border:5px solid black;*/
+	/*z-index: 80;*/
+	/*font-size: 135%;*/
+	/*position: relative;*/
+	/*width: 22em;*/
+	/*word-wrap: break-word;*/
+	/*top: -300px;*/
+	left: 50%;
+
+	/*border: 2px solid black;*/
+	/*float: right;*/
+	/*margin-bottom: 50px;*/
+	/*bottom: 250px;*/
+	/*top: -80%;*/
+	/*right: 0px;*/
+	/*width: 100%;*/
+}
+#entry h1{
+  margin-top: 15%;
+  font-size: 60px;
+  text-shadow:2px 2px #fff;
+  margin-bottom: 0px;
+}
+#entry h2 {
+  margin-top: 0px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/*form {
+	position: absolute;
+	margin-left: 35%;
+	margin-top: -11%;
+}*/
+
+/*.entryNumberInput {
+    width: 40%;
+    border: solid 5px #8c8c8c;
+ 	  transition: border 0.3s;
+    border-radius: 4px;
+    font-size: 180%;
+    background-color: white;
+    background-image: url('../img/srcicon.png');
+    background-position: 8px 8px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 55px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.entryNumberInput:focus {
+    border: solid 5px #404040;
+    width: 38%;
+}*/
+
+/*
+input:placeholder-shown {
+  border: 5px solid #404040;
+  margin-left: 5px; 
+}*/
+a {
+  text-decoration: none;
+}
+
+#main {
+    margin-left: 25%;
+    width: 50%;
+  }
+#input {
+  width: 75%;
+  height:40px; 
+  font-size:30px;
+  margin-bottom: 0px;
+  border: solid 5px #8c8c8c;
+  transition: border 0.3s;
+  border-radius: 10px;
+  /*font-size: 180%;*/
+  background-color: white;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  background-image: url('../img/srcicon.png');
+  background-position: 8px 8px; 
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 55px;
+}
+#input:focus {
+    border: solid 5px #f2b632;
+    width: 90%;
+}
+#predictions{
+  width: 100%;
+  margin: 0px;
+  /*margin-left: 3%;*/
+  list-style-type: none;
+  /*border:1px solid black;*/
+  padding: 0px;
+}
+#predictions li {
+  border:1px solid black;
+  background-color: #677077;
+  padding: 3px;
+}
+#predictions li a{
+  color: white;
+}
+.back {
+  position: relative;
+  /*border:5px solid black;*/
+  width: 100%;
+  margin-top: 18%;
+  /*height: 80%;*/
+  /*background-color: #ccc;*/
+  /*background-size: 100% 100%;*/
+  /*padding-top:100px;*/
+  /*margin: 0px; */
+}
+
+button {
+  background-color: #f2b632;
+  padding: 10px 15px;
+  border:0px;
+  border-radius: 5px;
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 0px 8px #888;
+  cursor: pointer;
+}
+
+#message{
+    position: absolute;
+    width: 28%;
+    z-index: 20;
+    border-radius: 10px;
+    /*padding-left: 2%;*/
+    margin-left: 33%;
+    margin-top: 15%;
+    /*height: 30%;*/
+    text-align: center;
+      box-shadow: 0px 0px 50px #212121;
+    background-color: rgba(240,240,240,0.9);
+  }
+
+  .dropDown {
+  width: 70px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgba(255,255,255,0.1);
+  border:0px; 
+  border-bottom: 3px solid white;
+  background-image: url('../img/downArrow.jpg');
+  background-size: 25px 100%;
+  background-position: 45px;
+  padding-left: 6px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+.dropDown:focus {
+  border:0px;
+  box-shadow: 0px 0px 16px #888;
+}
