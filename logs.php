@@ -11,6 +11,18 @@
 		margin-bottom: 0px;
 		font-size: 40px;
 	}
+	#monthNameHead{
+		color:white;
+		font-size: 150%;
+		text-shadow:2px 2px black;
+	}
+	#datepicker{
+		font-size: 18px;
+		box-shadow: 2px 2px 8px #888;
+	}
+	select{
+		box-shadow: 2px 2px 8px #888;
+	}
 	</style>
 </head>
 
@@ -58,11 +70,11 @@
 		$flag = 1;
 		$postDate = new DateTime($_POST['date']);
 		$postDateFormatted = $postDate->format('d F, Y');
-		echo "<h3 style='margin-left:5%; margin-top:0px' >Date  :  ".$postDateFormatted." </h3>";
+		echo "<h3 style='margin-left:5%; margin-top:0px' >Date  :  <strong id='monthNameHead'>".$postDateFormatted."</strong> </h3>";
 	} else if(isset($_POST['month'])) {
 		$dateObj   = DateTime::createFromFormat('!m', $_POST['month']);
 		$monthName = $dateObj->format('F');
-		echo "<h3 style='margin-left:5%; margin-top:0px' >Month  :  ".$monthName." </h3>";
+		echo "<h3 style='margin-left:5%; margin-top:0px' >Month  :  <strong id='monthNameHead'>".$monthName."</strong></h3>";
 		$flag = 1;
 	} 
 
@@ -72,7 +84,7 @@
 			FROM studentDetail
 			INNER JOIN entryDetail
 			ON entryDetail.Code = studentDetail.Code
-			ORDER BY entryDetail.TimeIn";
+			ORDER BY entryDetail.TimeIn DESC";
 	if($flag == 1) { 
 		$srNo = 1;
 		?>		

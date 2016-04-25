@@ -80,3 +80,14 @@ function writePredictions(str) { // attaching predictions to the HTML input fiel
 		predictions.appendChild(liNode);
 	}
 }
+function moreBtnClick() {
+	var moreBtn =document.getElementById("moreBtn");
+	if(moreBtn.innerHTML == "less..") {
+		moreBtn.innerHTML= "more..";
+	} else {
+		moreBtn.innerHTML= "less..";
+	}
+	// var more= document.getElementById("more");
+	// more.style.display = "block"; 
+	$("#more").slideToggle();	
+}

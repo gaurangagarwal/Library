@@ -265,3 +265,15 @@ button {
   border:0px;
   box-shadow: 0px 0px 16px #888;
 }
+#moreBtn {
+  cursor:pointer;
+  margin-left:70%; 
+  font-size:17px;
+}
+
+.inputField {
+  padding: 4px 7px;
+  width: 250px;
+  font-size: 17px;
+  box-shadow: 0px 0px 16px #888;
+}

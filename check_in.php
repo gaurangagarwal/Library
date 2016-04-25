@@ -1,13 +1,39 @@
+<?php
+// session_start();
+
+include('includes/phpConnectHead.php');
+$conn= mysqli_connect($servername,$username,$password,$database);
+
+if($conn)
+	;
+else
+	echo "Error";
+
+	$received_code=$_GET['code'];
+
+	$sql="SELECT Password FROM studentdetail WHERE Code='$received_code' ";
+
+	$result=$conn->query($sql);
+	$row=$result->fetch_assoc();
+
+	$password=$row['Password'];
+
+	if($password==NULL) {
+		header('Location: password.php?code='.$received_code);
+	}
+
+?>
+
 <html>
 <head>
 	<title>Library | Check in</title>
 	<link rel="stylesheet" type="text/css" href="css/check_in.css">
   	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="icon" href="img/Library.png">
-	
+	<link rel="icon" href="img/Library.png">	
 </head>
 
 <body>
+
 <?php
 	if(!isset($_GET['code']))
 		header('Location: index.php');
@@ -31,9 +57,22 @@
 	$dept = $row['Group'];
 	$email = $row['Email'];
 
-	// echo $row["TimeIn"];
-	// echo $row["TimeOut"];
+	// regarding the password
+	$access = 0; // access Not granted
+	if(isset($_POST['passSub'])) {
+		$entered_password=$_POST['password'];
+		$code=$_POST['codePass'];
+		$sql="SELECT Password FROM studentdetail WHERE Code='$code' ";
+		$result=$conn->query($sql);
+		$roww=$result->fetch_assoc();
+		if(password_verify( $entered_password, $roww['Password'])) {						
+			$access= 1; // access Granted
+		}
+	}
 ?>
+	<!-- <div id="dialog" title="Login Required" width="30%"> -->
+	    
+	<!-- </div> -->
 	<div id="message" style="display:none">
 		<table align="center" style="width:100%;" height="150" border="0">
 			<tr>
@@ -113,22 +152,44 @@
 						$result = mysqli_query($conn, $sql);
 						while($row = mysqli_fetch_assoc($result)) {
 							$logs++;
-							if($logs>5)
-								break;
+							// if($logs>5)
+							// 	break;
 							$timeIn = new DateTime($row['TimeIn']);
 							$timeOut = new DateTime($row['TimeOut']);
 							$date = $timeIn->format('d M,y');
 							$timeIn = $timeIn->format('g:i a');
 							$timeOut = $timeOut->format('g:i a');
+							if($logs == 4)
+								echo "<div id='more' style='display:none'>";
 							echo "<strong>".$date."</strong> :-  ".$timeIn." to  ".$timeOut."<br>"; 
 						}
+						if($logs >=4)
+							echo "</div>";
 					?>
+					<?php if($logs >= 4) { ?>
+						<a onclick="moreBtnClick()" id="moreBtn">more..</a>
+					<?php } ?>
 					</div>
 				</td>
 			</tr>	
 		</table>
 
 		</div>
+
+		<?php 
+			if($access == 0) {
+		?>
+			<div class="input_inf" width="100%">
+				<form method="post" action="check_in.php?code=<?php echo $code;?>">
+				    <input placeholder="Password" class="inputField" type="password" id="password" name="password" /><br><br>
+				  	<input type="text" style="display:none" id="codePass" value="<?php echo $code; ?>" name="codePass"/>
+				    <button type="submit" id="passSubmit" name="passSub">Login</button>
+				</form>
+			</div>
+		<?php
+			} else {
+		?>
+
 
 		<div class="input_inf">
 			
@@ -198,7 +259,9 @@
 			<!-- </form>				 -->
 
 		</div>
-
+		<?php 
+			}
+		?>
 	</div>
 
 	<div class="footer">
@@ -206,7 +269,19 @@
 
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="js/in_out.js"></script>
-
+	<script type="text/javascript">
+		function moreBtnClick() {
+			var moreBtn =document.getElementById("moreBtn");
+			if(moreBtn.innerHTML == "less..") {
+				moreBtn.innerHTML= "more..";
+			} else {
+				moreBtn.innerHTML= "less..";
+			}
+			// var more= document.getElementById("more");
+			// more.style.display = "block"; 
+			$("#more").slideToggle();	
+		}
+	</script>
 </body>
 
 

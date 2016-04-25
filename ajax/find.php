@@ -1,7 +1,8 @@
 <?php
 	$value = $_POST['value'];
 	// echo json_encode($value);
-	$conn = mysqli_connect("localhost", "root", "", "library");
+	include('../includes/phpConnectHead.php');
+	$conn= mysqli_connect($servername,$username,$password,$database);
 	if(!$conn) {
 		echo mysqli_connect_error();
 	}

@@ -8,11 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="icon" href="img/Library.png">
 	<style type="text/css">
-	#moreBtn {
-		cursor:pointer;
-		margin-left:70%; 
-		font-size:17px;
-	}
+	
 	</style>
 </head>
 
@@ -39,6 +35,19 @@
 	$result=$conn->query($sql);
 	$row=$result->fetch_assoc();
 	$timeIn = $row["TimeIn"];
+
+	// regarding the password
+	$access = 0; // access Not granted
+	if(isset($_POST['codePass'])) {
+		$entered_password=$_POST['password'];
+		$code = $_POST['codePass'];
+		$sql="SELECT Password FROM studentdetail WHERE Code='$code' ";
+		$result=$conn->query($sql);
+		$roww=$result->fetch_assoc();
+		if(password_verify( $entered_password, $roww['Password'])) {						
+			$access= 1; // access Granted
+		}
+	}	
 ?>
 
 	<div id="message" style="display:none">
@@ -158,13 +167,32 @@
 						if($logs >=4)
 							echo "</div>";
 					?>
-					<a onclick="moreBtnClick()" id="moreBtn">more..</a>
+					<?php if($logs >= 4) { ?>
+						<a onclick="moreBtnClick()" id="moreBtn">more..</a>
+					<?php } ?>
 					</div>
 				</td>
 			</tr>	
 		</table>
 
 		</div>
+
+		<?php 
+			if($access == 0) {
+		?>
+			<div class="input_inf" width="100%">
+				<form method="post" action="check_out.php?code=<?php echo $code;?>">
+				    <input placeholder="Password" class="inputField" type="password" id="password" name="password" /><br><br>
+				  	<input type="text" style="display:none" id="codePass" value="<?php echo $code; ?>" name="codePass"/>
+				    <button type="submit" id="passSubmit" name="passSub">Login</button>
+				</form>
+			</div>
+		<?php
+			} else {
+		?>
+
+
+
 		<div class="input_inf">
 			<table width="100%" border="0">
 			<tr>
@@ -273,6 +301,10 @@
 			</tr>
 			</table>
 		</div>
+		<?php
+			}
+		?>
+
 
 	</div>
 
@@ -283,6 +315,7 @@
 
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/in_out.js"></script>	
+
 <script type="text/javascript">
 function moreBtnClick() {
 	var moreBtn =document.getElementById("moreBtn");

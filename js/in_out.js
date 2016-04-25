@@ -106,8 +106,8 @@ $(document).ajaxStart(function (data){
 	message.style.display = "block";
 	messageText.innerHTML = "Loading";
 	messageImage.src ="img/loading.gif";
-	console.log(new Date().getTime());
-	console.log("Ajax Start ");
+	// console.log(new Date().getTime());
+	// console.log("Ajax Start ");
 });
 // $(document).ajaxStop(function (data) {
 	// messageText.innerHTML = "Done";
@@ -177,3 +177,6 @@ function checkBtnClick(operation){
 	
 	});
 }
+// function onloadFunc() {
+// 	$("#dialog").dialog();
+// }
